@@ -4,4 +4,33 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <InformationalVersion>1.0.0</InformationalVersion>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0</Version>
+    <IncludeSymbols>true</IncludeSymbols>
+    <IncludeSource>true</IncludeSource>
+    <SymbolPackageFormat>symbols.nupkg</SymbolPackageFormat>
+    <PackageOutputPath>$(MSBuildThisFileDirectory)/../../bld/deploy</PackageOutputPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Authors>P. van der Velde</Authors>
+    <Company>Company</Company>
+    <PackageId>FirstAML.Couriers</PackageId>
+    <Description>Provides interfaces, classes and methods to calculate the pricing of shipping an order of packages.</Description>
+    <Copyright>Mine</Copyright>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/pvandervelde/interview-2020-firstaml</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/pvandervelde/interview-2020-firstaml</RepositoryUrl>
+  </PropertyGroup>
+
 </Project>
