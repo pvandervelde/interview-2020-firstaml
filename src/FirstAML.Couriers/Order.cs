@@ -8,9 +8,15 @@ namespace FirstAML.Couriers
     /// </summary>
     public sealed class Order : IOrder
     {
-        private readonly List<ParcelShippingInformation> _parcels = new List<ParcelShippingInformation>();
+        private readonly List<IOrderLine> _parcels = new List<IOrderLine>();
 
         private readonly IPriceCalculator _priceCalculator;
+
+        private readonly bool _speedyShipping;
+
+        private SpeedyShippingItem _speedyShippingItem;
+
+        private decimal _totalCost;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Order"/> class.
@@ -19,12 +25,22 @@ namespace FirstAML.Couriers
         ///     The <see cref="IPriceCalculator"/> instance that is used to calculate the shipping cost of
         ///     an individual parcel.
         /// </param>
+        /// <param name="speedyShipping">
+        ///     A flag that indicates whether the order should be shipped with 'speedy shipping'.
+        /// </param>
         /// <exception cref="ArgumentNullException">
         ///     Thrown if <paramref name="calculator"/> is <see langword="null" />.
         /// </exception>
-        public Order(IPriceCalculator calculator)
+        public Order(IPriceCalculator calculator, bool speedyShipping = false)
         {
             _priceCalculator = calculator ?? throw new ArgumentNullException(nameof(calculator));
+            _speedyShipping = speedyShipping;
+
+            _speedyShippingItem = new SpeedyShippingItem(() => this._speedyShipping ? this._totalCost : 0m);
+            if (_speedyShipping)
+            {
+                _parcels.Add(_speedyShippingItem);
+            }
         }
 
         /// <summary>
@@ -42,13 +58,13 @@ namespace FirstAML.Couriers
             var shippingInformation = _priceCalculator.Calculate(parcel);
             _parcels.Add(shippingInformation);
 
-            TotalCost += shippingInformation.Cost;
+            _totalCost += shippingInformation.Cost;
         }
 
         /// <summary>
-        /// Gets the collection of parcels and their shipping information.
+        /// Gets the collection of items and their shipping information.
         /// </summary>
-        public IEnumerable<ParcelShippingInformation> Parcels
+        public IEnumerable<IOrderLine> Items
         {
             get
             {
@@ -59,6 +75,12 @@ namespace FirstAML.Couriers
         /// <summary>
         /// Gets the total cost for the current order.
         /// </summary>
-        public decimal TotalCost { get; private set; } = 0;
+        public decimal TotalCost 
+        {
+            get
+            {
+                return _totalCost + _speedyShippingItem.Cost;
+            }
+        }
     }
 }
