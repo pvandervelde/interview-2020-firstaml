@@ -5,7 +5,7 @@ a library which calculates the cost of shipping an order of parcels.
 
 ## Examples
 
-TBD
+For some examples on how to use the code please see the `OrderIntegrationTest`.
 
 ## Building
 
@@ -16,3 +16,11 @@ script. This script will
 * Update the project file versions
 * Compile the projects and create a NuGet package in the `bld\deploy` folder of the workspace
 * Execute the unit tests
+
+## Future improvements
+
+* At the moment the library uses the `decimal` type to handle monetary values. This means that there
+  is no currency information, only information about the value. If parcels need to be shipped
+  internationally then currencies will become important.
+* At the moment there is no diagnostic information available about how an order came together. This
+  may or may not be useful in the future.
