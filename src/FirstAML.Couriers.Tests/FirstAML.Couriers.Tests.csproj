@@ -23,9 +23,14 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
+    <PackageReference Include="Moq" Version="4.15.2" />
     <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="NUnit.Analyzers" Version="0.6.0" />
     <PackageReference Include="NUnit3TestAdapter" Version="3.16.1" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FirstAML.Couriers\FirstAML.Couriers.csproj" />
   </ItemGroup>
 
 </Project>
