@@ -14,9 +14,9 @@ namespace FirstAML.Couriers.Tests
 
             var parcel = new Parcel(length, width, height);
 
-            Assert.AreEqual(length, parcel.LengthInCm);
-            Assert.AreEqual(width, parcel.WidthInCm);
-            Assert.AreEqual(height, parcel.HeightInCm);
+            Assert.That(parcel.LengthInCm, Is.EqualTo(length));
+            Assert.That(parcel.WidthInCm, Is.EqualTo(width));
+            Assert.That(parcel.HeightInCm, Is.EqualTo(height));
         }
 
         [Test]
