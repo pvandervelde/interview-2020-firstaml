@@ -24,7 +24,7 @@ namespace FirstAML.Couriers
         /// </summary>
         /// <param name="parcel">The parcel for which the shipping cost should be calculated.</param>
         /// <returns>The shipping cost, in the current currency.</returns>
-        public ParcelShippingInformation Calculate(Parcel parcel)
+        public OrderLine Calculate(Parcel parcel)
         {
             if (parcel is null)
             {
@@ -40,7 +40,7 @@ namespace FirstAML.Couriers
             var largestDimension = dimensions.OrderByDescending(d => d).First();
             var info = _shippingCostByMaximumDimension.Where(p => largestDimension < p.Key).First().Value;
 
-            return new ParcelShippingInformation(parcel, info.Item1, info.Item2);
+            return new OrderLine(parcel, info.Item1, info.Item2);
         }
     }
 }

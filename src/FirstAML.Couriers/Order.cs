@@ -8,7 +8,7 @@ namespace FirstAML.Couriers
     /// </summary>
     public sealed class Order : IOrder
     {
-        private readonly List<ParcelShippingInformation> _parcels = new List<ParcelShippingInformation>();
+        private readonly List<OrderLine> _parcels = new List<OrderLine>();
 
         private readonly IPriceCalculator _priceCalculator;
 
@@ -48,7 +48,7 @@ namespace FirstAML.Couriers
         /// <summary>
         /// Gets the collection of parcels and their shipping information.
         /// </summary>
-        public IEnumerable<ParcelShippingInformation> Parcels
+        public IEnumerable<OrderLine> Parcels
         {
             get
             {

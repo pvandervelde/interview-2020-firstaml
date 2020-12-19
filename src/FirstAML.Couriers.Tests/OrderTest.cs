@@ -16,7 +16,7 @@ namespace FirstAML.Couriers.Tests
             var calculator = new Mock<IPriceCalculator>();
             {
                 calculator.Setup(c => c.Calculate(It.IsAny<Parcel>()))
-                    .Returns<Parcel>(p => new ParcelShippingInformation(p, costPerParcel, "not-an-actual-type"));
+                    .Returns<Parcel>(p => new OrderLine(p, costPerParcel, "not-an-actual-type"));
             }
             
             var order = new Order(calculator.Object);
