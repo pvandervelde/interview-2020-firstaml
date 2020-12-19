@@ -15,9 +15,9 @@ namespace FirstAML.Couriers
         void Add(Parcel parcel);
 
         /// <summary>
-        /// Gets the collection of parcels and their shipping information.
+        /// Gets the collection of items and their shipping information.
         /// </summary>
-        IEnumerable<OrderLine> Parcels
+        IEnumerable<IOrderLine> Items
         {
             get;
         }

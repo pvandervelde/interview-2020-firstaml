@@ -4,23 +4,23 @@ using System.Globalization;
 namespace FirstAML.Couriers
 {
     /// <summary>
-    /// Stores information about the shipping item.
+    /// Stores information about the parcel that should be shipped.
     /// </summary>
-    public sealed class OrderLine
+    public sealed class ParcelOrderLine : IOrderLine
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="OrderLine"/> class.
+        /// Initializes a new instance of the <see cref="ParcelOrderLine"/> class.
         /// </summary>
-        /// <param name="item">The item to which the shipping information applies.</param>
-        /// <param name="cost">The cost of shipping the item.</param>
-        /// <param name="itemDescription">The description of the item.</param>
+        /// <param name="item">The parcel to which the shipping information applies.</param>
+        /// <param name="cost">The cost of shipping the parcel.</param>
+        /// <param name="itemDescription">The description of the parcel.</param>
         /// <exception cref="ArgumentNullException">
         ///     Thrown if <paramref name="item"/> or <paramref name="itemDescription"/> are <see langword="null" />.
         /// </exception>
         /// <exception cref="ArgumentException">
         ///     Thrown when <paramref name="itemDescription"/> is an empty string.
         /// </exception>
-        public OrderLine(IOrderItem item, decimal cost, string itemDescription)
+        public ParcelOrderLine(Parcel item, decimal cost, string itemDescription)
         {
             if (item is null)
             {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 
 namespace FirstAML.Couriers
@@ -8,7 +8,7 @@ namespace FirstAML.Couriers
     /// </summary>
     public sealed class Order : IOrder
     {
-        private readonly List<OrderLine> _parcels = new List<OrderLine>();
+        private readonly List<IOrderLine> _parcels = new List<IOrderLine>();
 
         private readonly IPriceCalculator _priceCalculator;
 
@@ -46,9 +46,9 @@ namespace FirstAML.Couriers
         }
 
         /// <summary>
-        /// Gets the collection of parcels and their shipping information.
+        /// Gets the collection of items and their shipping information.
         /// </summary>
-        public IEnumerable<OrderLine> Parcels
+        public IEnumerable<IOrderLine> Items
         {
             get
             {
