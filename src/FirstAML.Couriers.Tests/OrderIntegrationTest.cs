@@ -13,7 +13,7 @@ namespace FirstAML.Couriers.Tests
             var largeParcel = new Parcel(50, 6, 7, 3.0);
             var extraLargeParcel = new Parcel(100, 6, 7, 5.0);
 
-            var calculator = new SizeBasedPriceCalculator();
+            var calculator = new WeightBasedPriceCalculator(new SizeBasedPriceCalculator());
             var order = new Order(calculator);
 
             order.Add(smallParcel);
@@ -32,7 +32,7 @@ namespace FirstAML.Couriers.Tests
             var largeParcel = new Parcel(50, 6, 7, 8.0);
             var extraLargeParcel = new Parcel(100, 6, 7, 12.0);
 
-            var calculator = new SizeBasedPriceCalculator();
+            var calculator = new WeightBasedPriceCalculator(new SizeBasedPriceCalculator());
             var order = new Order(calculator);
 
             order.Add(smallParcel);
@@ -51,7 +51,7 @@ namespace FirstAML.Couriers.Tests
             var largeParcel = new Parcel(50, 6, 7, 3.0);
             var extraLargeParcel = new Parcel(100, 6, 7, 5.0);
 
-            var calculator = new SizeBasedPriceCalculator();
+            var calculator = new WeightBasedPriceCalculator(new SizeBasedPriceCalculator());
             var order = new Order(calculator, speedyShipping:true);
 
             order.Add(smallParcel);
@@ -70,7 +70,7 @@ namespace FirstAML.Couriers.Tests
             var largeParcel = new Parcel(50, 6, 7, 8.0);
             var extraLargeParcel = new Parcel(100, 6, 7, 12.0);
 
-            var calculator = new SizeBasedPriceCalculator();
+            var calculator = new WeightBasedPriceCalculator(new SizeBasedPriceCalculator());
             var order = new Order(calculator, speedyShipping: true);
 
             order.Add(smallParcel);
