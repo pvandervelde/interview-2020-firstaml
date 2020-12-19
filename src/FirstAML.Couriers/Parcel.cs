@@ -3,7 +3,7 @@
 namespace FirstAML.Couriers
 {
     /// <summary>
-    /// This documentation comment is here to make the build pass for now.
+    /// Stores information about a given parcel.
     /// </summary>
     public sealed class Parcel
     {
