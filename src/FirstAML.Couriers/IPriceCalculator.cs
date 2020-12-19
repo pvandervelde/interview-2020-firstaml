@@ -10,6 +10,6 @@
         /// </summary>
         /// <param name="parcel">The parcel for which the shipping cost should be calculated.</param>
         /// <returns>The shipping cost, in the current currency.</returns>
-        ParcelShippingInformation Calculate(Parcel parcel);
+        ParcelOrderLine Calculate(Parcel parcel);
     }
 }

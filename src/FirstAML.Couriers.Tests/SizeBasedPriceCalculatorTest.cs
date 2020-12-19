@@ -24,9 +24,9 @@ namespace FirstAML.Couriers.Tests
             var info = calculator.Calculate(parcel);
 
 
-            Assert.That(info.ParcelToBeShipped, Is.SameAs(parcel));
+            Assert.That(info.ItemToShip, Is.SameAs(parcel));
             Assert.That(info.Cost, Is.EqualTo(cost));
-            Assert.That(info.ParcelType, Is.EqualTo(description));
+            Assert.That(info.ItemDescription, Is.EqualTo(description));
         }
 
         [Test]

@@ -5,7 +5,7 @@ namespace FirstAML.Couriers
     /// <summary>
     /// Stores information about a given parcel.
     /// </summary>
-    public sealed class Parcel
+    public sealed class Parcel : IOrderItem
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="Parcel"/> class.
