@@ -13,11 +13,12 @@ namespace FirstAML.Couriers
         /// <param name="lengthInCm">The length of the parcel in centimeters.</param>
         /// <param name="widthInCm">The width of the parcel in centimeters.</param>
         /// <param name="heightInCm">The height of the parcel in centimeters.</param>
+        /// <param name="weightInKg">The weight of the parcel in kilogram.</param>
         /// <exception cref="ArgumentOutOfRangeException">
-        ///     Thrown when one of the <paramref name="lengthInCm"/>, <paramref name="widthInCm"/> or
-        ///     <paramref name="heightInCm"/> is less than 0.
+        ///     Thrown when one of the <paramref name="lengthInCm"/>, <paramref name="widthInCm"/>,
+        ///     <paramref name="heightInCm"/> or <paramref name="weightInKg"/> is less than 0.
         /// </exception>
-        public Parcel(int lengthInCm, int widthInCm, int heightInCm)
+        public Parcel(int lengthInCm, int widthInCm, int heightInCm, double weightInKg)
         {
             if (lengthInCm < 0)
             {
@@ -46,9 +47,20 @@ namespace FirstAML.Couriers
                         heightInCm));
             }
 
+            if (weightInKg < 0.0)
+            {
+                throw new ArgumentOutOfRangeException(
+                    nameof(weightInKg),
+                    string.Format(
+                        "The weight of the parcel should be greater than 0 kg. The supplied value was: {0}",
+                        weightInKg));
+            }
+
             LengthInCm = lengthInCm;
             HeightInCm = heightInCm;
             WidthInCm = widthInCm;
+
+            WeightInKg = weightInKg;
         }
 
         /// <summary>
@@ -64,6 +76,15 @@ namespace FirstAML.Couriers
         /// Gets the length of the package in centimeters.
         /// </summary>
         public int LengthInCm
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// Gets the weight of the package in kilograms.
+        /// </summary>
+        public double WeightInKg
         {
             get;
             private set;

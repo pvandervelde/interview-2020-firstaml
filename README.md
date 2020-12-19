@@ -24,3 +24,6 @@ script. This script will
   internationally then currencies will become important.
 * At the moment there is no diagnostic information available about how an order came together. This
   may or may not be useful in the future.
+* The way the price calculation is done is functional but if more different kinds of price calculations
+  are required then this will need to be refactored. Additionally if issues like taxes and vouchers
+  etc. become important then the price calculation will need to be beefed up.

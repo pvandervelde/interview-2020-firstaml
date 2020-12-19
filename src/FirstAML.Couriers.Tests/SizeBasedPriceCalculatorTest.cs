@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Security.Cryptography;
-using System.Text;
-using NuGet.Frameworks;
 using NUnit.Framework;
 
 namespace FirstAML.Couriers.Tests
@@ -18,7 +14,7 @@ namespace FirstAML.Couriers.Tests
         [TestCase(100, 6, 7, 25, "Extra Large")]
         public void When_ThePriceIsCalculated_Then_ParcelShippingInformationShouldBeReturned(int length, int width, int height, decimal cost, string description)
         {
-            var parcel = new Parcel(length, width, height);
+            var parcel = new Parcel(length, width, height, 1.0);
 
             var calculator = new SizeBasedPriceCalculator();
             var info = calculator.Calculate(parcel);
