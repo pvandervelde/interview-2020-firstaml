@@ -24,7 +24,7 @@ namespace FirstAML.Couriers.Tests
             int count = 10;
             for (int i = 0; i < count; i++)
             {
-                var parcel = new Parcel(i + 1, i + 1, i + 1);
+                var parcel = new Parcel(i + 1, i + 1, i + 1, 1.0);
                 order.Add(parcel);
             }
 
@@ -53,7 +53,7 @@ namespace FirstAML.Couriers.Tests
             int count = 10;
             for (int i = 0; i < count; i++)
             {
-                var parcel = new Parcel(i + 1, i + 1, i + 1);
+                var parcel = new Parcel(i + 1, i + 1, i + 1, 1.0);
                 order.Add(parcel);
             }
 

@@ -10,7 +10,7 @@ namespace FirstAML.Couriers.Tests
         public void When_CreatingAParcelOrderLine_Then_InformationShouldBeSet()
         {
             var cost = 10m;
-            var parcel = new Parcel(1, 2, 3);
+            var parcel = new Parcel(1, 2, 3, 1.0);
             var parcelType = "a";
 
             var shippingInfo = new ParcelOrderLine(parcel, cost, parcelType);
@@ -23,13 +23,13 @@ namespace FirstAML.Couriers.Tests
         [Test]
         public void When_CreatingAParcelOrderLine_WithEmptyParcelType_Then_ExceptionIsThrown()
         {
-            Assert.Throws<ArgumentOutOfRangeException>(() => new ParcelOrderLine(new Parcel(1, 2, 3), -1, "a"));
+            Assert.Throws<ArgumentOutOfRangeException>(() => new ParcelOrderLine(new Parcel(1, 2, 3, 1.0), -1, "a"));
         }
 
         [Test]
         public void When_CreatingAParcelOrderLine_WithNegativeCost_Then_ExceptionIsThrown()
         {
-            Assert.Throws<ArgumentException>(() => new ParcelOrderLine(new Parcel(1, 2, 3), 4, string.Empty));
+            Assert.Throws<ArgumentException>(() => new ParcelOrderLine(new Parcel(1, 2, 3, 1.0), 4, string.Empty));
         }
 
         [Test]
@@ -41,7 +41,7 @@ namespace FirstAML.Couriers.Tests
         [Test]
         public void When_CreatingAParcelOrderLine_WithNullParcelType_Then_ExceptionIsThrown()
         {
-            Assert.Throws<ArgumentNullException>(() => new ParcelOrderLine(new Parcel(1, 2, 3), 4, null));
+            Assert.Throws<ArgumentNullException>(() => new ParcelOrderLine(new Parcel(1, 2, 3, 1.0), 4, null));
         }
     }
 }
